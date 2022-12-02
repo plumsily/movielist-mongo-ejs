@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies List</title>
+    <script src="https://kit.fontawesome.com/48526c312e.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <h1>Your Movie List:</h1>
+    <form action="/movies" method="POST">
+        <input type="text" placeholder="name" name="name" />
+        <button type="submit">Submit</button>
+      </form>
+    <ul class="movies">
+        <% for(let i=0;i<info.length;i++) {%>
+            <li class="movie">
+                <span class="movie-name"><%=info[i].movieName %></span>
+                <span> - <%=info[i].watched?"Watched":"Haven't watched" %> - </span>
+                <span class="fa-solid fa-square-check"></span>
+                <span class="fa-solid fa-trash"></span>
+            </li>
+        <% } %>
+    </ul>
+    <script src="js/main.js"></script>
+  </body>
+</html>
