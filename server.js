@@ -4,6 +4,8 @@ const MongoClient = require("mongodb").MongoClient;
 const PORT = 2121;
 require("dotenv").config();
 
+app.use(cors());
+
 let db,
   dbConnectionStr = process.env.DB_STRING,
   dbName = "movies-DB";
