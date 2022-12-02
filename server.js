@@ -1,4 +1,4 @@
-const MongoClient = require("mongodb").MongoClient;
+const { MongoClient, ServerApiVersion } = require("mongodb");
 const express = require("express");
 const app = express();
 const PORT = 2121;
@@ -6,19 +6,38 @@ require("dotenv").config();
 const cors = require("cors");
 app.use(cors());
 
+const uri = process.env.DB_STRING;
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverApi: ServerApiVersion.v1,
+});
+
 let db,
-  dbConnectionStr = process.env.DB_STRING,
   dbName = "movies-DB";
 
-MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
-  .then((client) => {
-    console.log(`Connected to ${dbName} Database!`);
-    db = client.db(dbName);
-    app.listen(process.env.PORT || PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
-  })
-  .catch((error) => console.log(error));
+client.connect(async (err) => {
+  if (err) {
+    console.error(err);
+    return false;
+  }
+  console.log(`Connected to ${dbName} Database!`);
+  db = client.db(dbName);
+  app.listen(process.env.PORT || PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+});
+
+// client
+//   .connect(dbConnectionStr, { useUnifiedTopology: true })
+//   .then((client) => {
+//     console.log(`Connected to ${dbName} Database!`);
+//     db = client.db(dbName);
+//     app.listen(process.env.PORT || PORT, () => {
+//       console.log(`Server running on port ${PORT}`);
+//     });
+//   })
+//   .catch((error) => console.log(error));
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
