@@ -1,6 +1,6 @@
+const MongoClient = require("mongodb").MongoClient;
 const express = require("express");
 const app = express();
-const MongoClient = require("mongodb").MongoClient;
 const PORT = 2121;
 require("dotenv").config();
 const cors = require("cors");
@@ -14,6 +14,9 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
   .then((client) => {
     console.log(`Connected to ${dbName} Database!`);
     db = client.db(dbName);
+    app.listen(process.env.PORT || PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
   })
   .catch((error) => console.log(error));
 
@@ -71,8 +74,4 @@ app.delete("/deleteMovie", (req, res) => {
       res.json("Movie or show deleted");
     })
     .catch((error) => console.error(error));
-});
-
-app.listen(process.env.PORT || PORT, () => {
-  console.log(`Server running on port ${PORT}`);
 });
