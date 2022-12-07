@@ -73,7 +73,7 @@ app.put("/updateWatched", (req, res) => {
       { movieName: req.body.nameS },
       {
         $set: {
-          watched: 1,
+          watched: !req.body.watchedS,
         },
       },
       { sort: { _id: -1 }, upsert: true }
