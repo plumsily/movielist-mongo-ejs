@@ -1,0 +1,72 @@
+body {
+    max-width: 70ch;
+    padding: 3em 1em;
+    margin: auto;
+    line-height: 1.75;
+    font-size: 1.25em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.movies {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.5em;
+    padding: 0;
+}
+
+.movie {
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+}
+
+.movie-name, .watched-state {
+    flex: auto;
+}
+
+.movie-name {
+    font-weight: 600;
+    flex: 2;
+}
+
+.movie-name-watched {
+    font-weight: 400;
+    text-decoration: line-through;
+}
+
+.watched-state {
+    flex: 3;
+}
+
+.fa-solid {
+    cursor: pointer;
+}
+
+.fa-solid:hover {
+    color: red;
+    /* scale: 1.1; */
+    transition: all 100ms ease-in-out;
+}
+
+.fa-watched {
+    color: green;
+}
+
+form {
+    display: flex;
+    gap: 0.2em;
+    margin-bottom: 2em;
+}
+
+.search-input {
+    flex: 4;
+    padding: 0.5em;
+    font-size: 1em;
+}
+
+.search-button {
+    flex: 1;
+    font-size: 1em;
+}
