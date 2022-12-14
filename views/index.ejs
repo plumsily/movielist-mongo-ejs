@@ -25,10 +25,10 @@
     <ul class="movies">
         <% for(let i=0;i<info.length;i++) {%>
             <li class="movie">
-                <span class="movie-name <%=!info[i].watched?``:`movie-name-watched`%>"><%=info[i].movieName %></span>
+                <span class="movie-name <%=!info[i].watched?``:`movie-name-watched`%>"><%=info[i].movieName %>                <span class="fa-solid fa-square-check <%=!info[i].watched?``:`fa-watched`%>"></span>
+                <span class="fa-solid fa-trash"></span></span>
                 <span class="watched-state"><%=info[i].watched?"Watched":"Haven't seen" %></span>
-                <span class="fa-solid fa-square-check <%=!info[i].watched?``:`fa-watched`%>"></span>
-                <span class="fa-solid fa-trash"></span>
+
             </li>
         <% } %>
     </ul>

@@ -5,8 +5,8 @@
 }
 
 body {
-    max-width: 70ch;
-    padding: 3em 1em;
+    /* max-width: 70ch; */
+    padding: 4em 1em 1em 1em;
     margin: auto;
     line-height: 1.75;
     font-size: 1.25em;
@@ -21,7 +21,7 @@ nav{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 0.2em 0.5em;
+    padding: 0.2em 0.5em 0.2em 0.8em;
     gap: 0.8em;
 }
 
@@ -86,17 +86,21 @@ nav > form {
 }
 .movies {
     display: flex;
-    flex-flow: column nowrap;
-    gap: 0.5em;
+    justify-content: center;
+    flex-flow: row wrap;
+    /* gap: 0.5em; */
     padding: 0;
 }
 
 .movie {
     display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
     gap: 10px;
     border-bottom: 1px solid lightgray;
-    padding-bottom: 2px;
-    margin-bottom: 5px;
+    padding-bottom: 1em;
+    margin-bottom: 2em;
+    width: 15em;
 }
 
 .movie-name, .watched-state {
@@ -110,7 +114,7 @@ nav > form {
 
 .movie-name-watched {
     font-weight: 400;
-    text-decoration: line-through;
+    /* text-decoration: line-through; */
 }
 
 .watched-state {
